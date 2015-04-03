@@ -2,31 +2,31 @@ package intervals;
 
 public abstract class Interval {
 
-    private double minimun, maximum;
+    private double minimum, maximum;
 
     private Opening opening;
 
-    public Interval(double minimun, double maximum) {
-        this.minimun = minimun;
+    public Interval(double minimum, double maximum) {
+        this.minimum = minimum;
         this.maximum = maximum;
     }
     
     public abstract Opening getOpening();
 
     public double midPoint() {
-        return (this.minimun + this.maximum) / 2;
+        return (this.minimum + this.maximum) / 2;
     }
 
     public boolean includes(double value) {
         switch (this.opening) {
         case LEFT_OPENED:
-            return (value > this.minimun & value <= this.maximum);
+            return (value > this.minimum & value <= this.maximum);
         case RIGHT_OPENED:
-            return (value >= this.minimun & value < this.maximum);
+            return (value >= this.minimum & value < this.maximum);
         case BOTH_OPENED:
-            return (value > this.minimun & value < this.maximum);
+            return (value > this.minimum & value < this.maximum);
         case UNOPENED:
-            return (value >= this.minimun & value <= this.maximum);
+            return (value >= this.minimum & value <= this.maximum);
         }
         return false;
     }
@@ -36,38 +36,38 @@ public abstract class Interval {
         case LEFT_OPENED:
             switch (interval.opening) {
             case LEFT_OPENED:
-                return (interval.minimun >= this.minimun & interval.maximum <= this.maximum);
+                return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
             case RIGHT_OPENED:
-                return (interval.minimun > this.minimun & interval.maximum <= this.maximum);
+                return (interval.minimum > this.minimum & interval.maximum <= this.maximum);
             case BOTH_OPENED:
-                return (interval.minimun >= this.minimun & interval.maximum <= this.maximum);
+                return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
             case UNOPENED:
-                return (interval.minimun > this.minimun & interval.maximum <= this.maximum);
+                return (interval.minimum > this.minimum & interval.maximum <= this.maximum);
             }
         case RIGHT_OPENED:
             switch (interval.opening) {
             case LEFT_OPENED:
-                return (interval.minimun >= this.minimun & interval.maximum < this.maximum);
+                return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
             case RIGHT_OPENED:
-                return (interval.minimun >= this.minimun & interval.maximum <= this.maximum);
+                return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
             case BOTH_OPENED:
-                return (interval.minimun >= this.minimun & interval.maximum <= this.maximum);
+                return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
             case UNOPENED:
-                return (interval.minimun >= this.minimun & interval.maximum < this.maximum);
+                return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
             }
         case BOTH_OPENED:
             switch (interval.opening) {
             case LEFT_OPENED:
-                return (interval.minimun >= this.minimun & interval.maximum < this.maximum);
+                return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
             case RIGHT_OPENED:
-                return (interval.minimun > this.minimun & interval.maximum <= this.maximum);
+                return (interval.minimum > this.minimum & interval.maximum <= this.maximum);
             case BOTH_OPENED:
-                return (interval.minimun >= this.minimun & interval.maximum <= this.maximum);
+                return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
             case UNOPENED:
-                return (interval.minimun > this.minimun & interval.maximum < this.maximum);
+                return (interval.minimum > this.minimum & interval.maximum < this.maximum);
             }
         case UNOPENED:
-            return (interval.minimun >= this.minimun & interval.maximum <= this.maximum);
+            return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
         }
         return false;
     }

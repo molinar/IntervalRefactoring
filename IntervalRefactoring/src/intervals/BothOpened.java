@@ -2,9 +2,8 @@ package intervals;
 
 public class BothOpened extends Interval{
 
-    public BothOpened(double minimun, double maximum) {
-        super(minimun, maximum);
-        // TODO Auto-generated constructor stub
+    public BothOpened(double minimum, double maximum) {
+        super(minimum, maximum);
     }
 
     @Override

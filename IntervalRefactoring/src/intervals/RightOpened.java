@@ -2,8 +2,8 @@ package intervals;
 
 public class RightOpened extends Interval{
 
-    public RightOpened(double minimun, double maximum) {
-        super(minimun, maximum);
+    public RightOpened(double minimum, double maximum) {
+        super(minimum, maximum);
     }
 
     @Override
