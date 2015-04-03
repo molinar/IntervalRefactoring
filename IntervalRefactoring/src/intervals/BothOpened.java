@@ -13,7 +13,7 @@ public class BothOpened extends Interval{
 
     @Override
     public boolean includes(double value) {
-        return (value > this.minimum & value < this.maximum);
+        return (value > this.minimum && value < this.maximum);
     }
 
     @Override
@@ -23,23 +23,21 @@ public class BothOpened extends Interval{
 
     @Override
     public boolean includes(BothOpened interval) {
-        return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
+        return (interval.minimum <= this.minimum && interval.maximum >= this.maximum);
     }
 
     @Override
     public boolean includes(LeftOpened interval) {
-        return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
+        return (interval.minimum <= this.minimum && interval.maximum >= this.maximum);
     }
 
     @Override
     public boolean includes(RightOpened interval) {
-        return (interval.minimum > this.minimum & interval.maximum <= this.maximum);
+        return (interval.minimum <= this.minimum && interval.maximum >= this.maximum);
     }
 
     @Override
     public boolean includes(Unopened interval) {
-        return (interval.minimum > this.minimum & interval.maximum < this.maximum);
+        return (interval.minimum <= this.minimum && interval.maximum >= this.maximum);
     }
-   
-    
 }
