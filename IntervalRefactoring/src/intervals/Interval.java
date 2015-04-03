@@ -11,9 +11,7 @@ public abstract class Interval {
         this.maximum = maximum;
     }
     
-    public Opening getOpening(){
-        return opening;
-    }
+    public abstract Opening getOpening();
 
     public double midPoint() {
         return (this.minimun + this.maximum) / 2;
