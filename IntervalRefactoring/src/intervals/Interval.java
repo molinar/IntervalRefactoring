@@ -1,15 +1,14 @@
 package intervals;
 
-public class Interval {
+public abstract class Interval {
 
     private double minimun, maximum;
 
     private Opening opening;
 
-    public Interval(double minimun, double maximum, Opening opening) {
+    public Interval(double minimun, double maximum) {
         this.minimun = minimun;
         this.maximum = maximum;
-        this.opening = opening;
     }
     
     public Opening getOpening(){
