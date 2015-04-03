@@ -18,18 +18,27 @@ public class RightOpened extends Interval{
 
     @Override
     public boolean includes(Interval interval) {
-        switch (interval.getOpening()) {
-        case LEFT_OPENED:
-            return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
-        case RIGHT_OPENED:
-            return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
-        case BOTH_OPENED:
-            return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
-        case UNOPENED:
-            return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
-        default:
-            throw new IllegalArgumentException("Incorrect type code value");
-        }
+        return interval.includes(this);
+    }
+
+    @Override
+    public boolean includes(BothOpened interval) {
+        return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
+    }
+
+    @Override
+    public boolean includes(LeftOpened interval) {
+        return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
+    }
+
+    @Override
+    public boolean includes(RightOpened interval) {
+        return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
+    }
+
+    @Override
+    public boolean includes(Unopened interval) {
+        return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
     }
 
 }
