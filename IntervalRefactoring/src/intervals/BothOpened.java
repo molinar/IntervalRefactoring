@@ -11,4 +11,24 @@ public class BothOpened extends Interval{
         return Opening.BOTH_OPENED;
     }
 
+    @Override
+    public boolean includes(double value) {
+        return (value > this.minimum & value < this.maximum);
+    }
+
+    @Override
+    public boolean includes(Interval interval) {
+        switch (interval.getOpening()) {
+        case LEFT_OPENED:
+            return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
+        case RIGHT_OPENED:
+            return (interval.minimum > this.minimum & interval.maximum <= this.maximum);
+        case BOTH_OPENED:
+            return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
+        case UNOPENED:
+            return (interval.minimum > this.minimum & interval.maximum < this.maximum);
+        default:
+            throw new IllegalArgumentException("Incorrect type code value");
+        }
+    }
 }
