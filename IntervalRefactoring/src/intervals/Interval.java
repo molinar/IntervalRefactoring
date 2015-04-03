@@ -2,9 +2,7 @@ package intervals;
 
 public abstract class Interval {
 
-    private double minimum, maximum;
-
-    private Opening opening;
+    protected double minimum, maximum;
 
     public Interval(double minimum, double maximum) {
         this.minimum = minimum;
@@ -17,60 +15,9 @@ public abstract class Interval {
         return (this.minimum + this.maximum) / 2;
     }
 
-    public boolean includes(double value) {
-        switch (this.opening) {
-        case LEFT_OPENED:
-            return (value > this.minimum & value <= this.maximum);
-        case RIGHT_OPENED:
-            return (value >= this.minimum & value < this.maximum);
-        case BOTH_OPENED:
-            return (value > this.minimum & value < this.maximum);
-        case UNOPENED:
-            return (value >= this.minimum & value <= this.maximum);
-        }
-        return false;
-    }
+    public abstract boolean includes(double value);
 
-    public boolean includes(Interval interval) {
-        switch (this.opening) {
-        case LEFT_OPENED:
-            switch (interval.opening) {
-            case LEFT_OPENED:
-                return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
-            case RIGHT_OPENED:
-                return (interval.minimum > this.minimum & interval.maximum <= this.maximum);
-            case BOTH_OPENED:
-                return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
-            case UNOPENED:
-                return (interval.minimum > this.minimum & interval.maximum <= this.maximum);
-            }
-        case RIGHT_OPENED:
-            switch (interval.opening) {
-            case LEFT_OPENED:
-                return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
-            case RIGHT_OPENED:
-                return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
-            case BOTH_OPENED:
-                return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
-            case UNOPENED:
-                return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
-            }
-        case BOTH_OPENED:
-            switch (interval.opening) {
-            case LEFT_OPENED:
-                return (interval.minimum >= this.minimum & interval.maximum < this.maximum);
-            case RIGHT_OPENED:
-                return (interval.minimum > this.minimum & interval.maximum <= this.maximum);
-            case BOTH_OPENED:
-                return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
-            case UNOPENED:
-                return (interval.minimum > this.minimum & interval.maximum < this.maximum);
-            }
-        case UNOPENED:
-            return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
-        }
-        return false;
-    }
+    public abstract boolean includes(Interval interval);
 
     public boolean intersectsWith(Interval interval) {
         // TODO
