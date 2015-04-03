@@ -19,13 +19,13 @@ public abstract class Interval {
 
     public abstract boolean includes(Interval interval);
     
-    public abstract boolean includes(BothOpened);
+    public abstract boolean includes(BothOpened interval);
     
-    public abstract boolean includes(LeftOpened);
+    public abstract boolean includes(LeftOpened interval);
       
-    public abstract boolean includes(RightOpened);
+    public abstract boolean includes(RightOpened interval);
     
-    public abstract boolean includes(Unopened);
+    public abstract boolean includes(Unopened interval);
 
     public boolean intersectsWith(Interval interval) {
         // TODO
