@@ -18,6 +18,26 @@ public class Unopened extends Interval{
 
     @Override
     public boolean includes(Interval interval) {
+        return interval.includes(this);
+    }
+
+    @Override
+    public boolean includes(BothOpened interval) {
+        return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
+    }
+
+    @Override
+    public boolean includes(LeftOpened interval) {
+        return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
+    }
+
+    @Override
+    public boolean includes(RightOpened interval) {
+        return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
+    }
+
+    @Override
+    public boolean includes(Unopened interval) {
         return (interval.minimum >= this.minimum & interval.maximum <= this.maximum);
     }
 
