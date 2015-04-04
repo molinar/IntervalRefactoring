@@ -4,8 +4,8 @@ public class Unopened extends Interval{
 
     public Unopened(double minimum, double maximum) {
         super();
-        this.minimum = new OpenPoint(minimum);
-        this.maximum = new OpenPoint(maximum);    }
+        this.minimum = new ClosePoint(minimum);
+        this.maximum = new ClosePoint(maximum);    }
 
     @Override
     public Opening getOpening() {
