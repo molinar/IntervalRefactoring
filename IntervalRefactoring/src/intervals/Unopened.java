@@ -3,8 +3,9 @@ package intervals;
 public class Unopened extends Interval{
 
     public Unopened(double minimum, double maximum) {
-        super(minimum, maximum);
-    }
+        super();
+        this.minimum = new OpenPoint(minimum);
+        this.maximum = new OpenPoint(maximum);    }
 
     @Override
     public Opening getOpening() {
@@ -13,31 +14,11 @@ public class Unopened extends Interval{
 
     @Override
     public boolean includes(double value) {
-        return (value >= this.minimum && value <= this.maximum);
+        return (value >= this.minimum.value && value <= this.maximum.value);
     }
 
     @Override
     public boolean includes(Interval interval) {
-        return interval.includes(this);
-    }
-
-    @Override
-    public boolean includes(BothOpened interval) {
-        return (interval.minimum < this.minimum && interval.maximum > this.maximum);
-    }
-
-    @Override
-    public boolean includes(LeftOpened interval) {
-        return (interval.minimum < this.minimum && interval.maximum >= this.maximum);
-    }
-
-    @Override
-    public boolean includes(RightOpened interval) {
-        return (interval.minimum <= this.minimum && interval.maximum > this.maximum);
-    }
-
-    @Override
-    public boolean includes(Unopened interval) {
-        return (interval.minimum <= this.minimum && interval.maximum >= this.maximum);
+        return (this.minimum.isGreaterOrEqualsThan(interval.minimum) && this.maximum.isLowerOrEqualsThan(interval.maximum));
     }
 }
