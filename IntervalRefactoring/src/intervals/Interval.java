@@ -2,30 +2,20 @@ package intervals;
 
 public abstract class Interval {
 
-    protected double minimum, maximum;
+    protected Point minimum, maximum;
 
-    public Interval(double minimum, double maximum) {
-        this.minimum = minimum;
-        this.maximum = maximum;
+    public Interval() {
     }
     
     public abstract Opening getOpening();
 
     public double midPoint() {
-        return (this.minimum + this.maximum) / 2;
+        return (this.minimum.value + this.maximum.value) / 2;
     }
 
     public abstract boolean includes(double value);
 
     public abstract boolean includes(Interval interval);
-    
-    public abstract boolean includes(BothOpened interval);
-    
-    public abstract boolean includes(LeftOpened interval);
-      
-    public abstract boolean includes(RightOpened interval);
-    
-    public abstract boolean includes(Unopened interval);
 
     public boolean intersectsWith(Interval interval) {
         // TODO
