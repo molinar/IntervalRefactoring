@@ -8,74 +8,62 @@ public class ClosePoint extends Point{
 
     @Override
     public boolean isLowerThan(Point point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.isLowerThan(this);        
     }
 
     @Override
     public boolean isLowerThan(ClosePoint point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.value > this.value;
     }
 
     @Override
     public boolean isLowerThan(OpenPoint point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.value > this.value;
     }
 
     @Override
     public boolean isGreaterThan(Point point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.isGreaterThan(this);
     }
 
     @Override
     public boolean isGreaterThan(ClosePoint point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.value < this.value;
     }
 
     @Override
     public boolean isGreaterThan(OpenPoint point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.value < this.value;
     }
 
     @Override
     public boolean isLowerOrEqualsThan(Point point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.isLowerOrEqualsThan(this);
     }
 
     @Override
     public boolean isLowerOrEqualsThan(ClosePoint point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.value >= this.value;
     }
 
     @Override
     public boolean isLowerOrEqualsThan(OpenPoint point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.value > this.value;
     }
 
     @Override
     public boolean isGreaterOrEqualsThan(Point point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.isGreaterOrEqualsThan(this);
     }
 
     @Override
     public boolean isGreaterOrEqualsThan(ClosePoint point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.value <= this.value;
     }
 
     @Override
     public boolean isGreaterOrEqualsThan(OpenPoint point) {
-        // TODO Auto-generated method stub
-        return false;
+        return point.value < this.value;
     }
 
 }
