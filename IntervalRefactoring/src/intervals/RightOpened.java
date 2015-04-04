@@ -4,7 +4,7 @@ public class RightOpened extends Interval{
 
     public RightOpened(double minimum, double maximum) {
         super();
-        this.minimum = new OpenPoint(minimum);
+        this.minimum = new ClosePoint(minimum);
         this.maximum = new OpenPoint(maximum);
     }
 
