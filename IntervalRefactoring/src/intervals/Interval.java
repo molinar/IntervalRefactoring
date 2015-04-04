@@ -13,7 +13,10 @@ public abstract class Interval {
         return (this.minimum.value + this.maximum.value) / 2;
     }
 
-    public abstract boolean includes(double value);
+    public boolean includes(double value){
+        Point included = new ClosePoint(value);
+        return (this.minimum.isLowerOrEqualsThan(included) && this.maximum.isGreaterOrEqualsThan(included));
+    }
 
     public boolean includes(Interval interval){
         return (this.minimum.isLowerOrEqualsThan(interval.minimum) && this.maximum.isGreaterOrEqualsThan(interval.maximum));
