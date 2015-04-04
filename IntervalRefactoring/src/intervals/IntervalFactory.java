@@ -6,13 +6,13 @@ public class IntervalFactory {
 	public static Interval getInterval(double minimum, double maximum, Opening opening) {
 	    switch (opening){
 	    case BOTH_OPENED:
-	        return new BothOpened(minimum, maximum);
+	        return new Interval(new OpenPoint(minimum), new OpenPoint(maximum));
 	    case LEFT_OPENED:
-	        return new LeftOpened(minimum, maximum);
+	        return new Interval(new OpenPoint(minimum), new ClosePoint(maximum));
 	    case RIGHT_OPENED:
-	        return new RightOpened(minimum, maximum);
+	        return new Interval(new ClosePoint(minimum), new OpenPoint(maximum));
 	    case UNOPENED:
-	        return new Unopened(minimum, maximum);
+	        return new Interval(new ClosePoint(minimum), new ClosePoint(maximum));
         default:
             throw new IllegalArgumentException("Incorrect type code value");
 	    }
