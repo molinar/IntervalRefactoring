@@ -40,5 +40,4 @@ public class RightOpened extends Interval{
     public boolean includes(Unopened interval) {
         return (interval.minimum <= this.minimum && interval.maximum >= this.maximum);
     }
-
 }
