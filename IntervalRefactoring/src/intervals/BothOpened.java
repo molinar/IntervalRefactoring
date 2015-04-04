@@ -5,7 +5,7 @@ public class BothOpened extends Interval{
     public BothOpened(double minimum, double maximum) {
         super();
         this.minimum = new OpenPoint(minimum);
-        this.maximum = new OpenPoint(maximum);
+        this.maximum = new OpenPoint(maximum); 
     }
 
     @Override
@@ -20,6 +20,6 @@ public class BothOpened extends Interval{
 
     @Override
     public boolean includes(Interval interval) {
-        return (this.minimum.isGreaterOrEqualsThan(interval.minimum) && this.maximum.isLowerOrEqualsThan(interval.maximum));
+        return (this.minimum.isLowerOrEqualsThan(interval.minimum) && this.maximum.isGreaterOrEqualsThan(interval.maximum));
     }
 }
