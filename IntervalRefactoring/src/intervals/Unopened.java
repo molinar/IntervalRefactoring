@@ -11,10 +11,4 @@ public class Unopened extends Interval{
     public Opening getOpening() {
         return Opening.UNOPENED;
     }
-
-    @Override
-    public boolean includes(double value) {
-        Point included = new ClosePoint(value);
-        return (this.minimum.isLowerOrEqualsThan(included) && this.maximum.isGreaterOrEqualsThan(included));
-    }
 }

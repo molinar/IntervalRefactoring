@@ -12,10 +12,4 @@ public class BothOpened extends Interval{
     public Opening getOpening() {
         return Opening.BOTH_OPENED;
     }
-
-    @Override
-    public boolean includes(double value) {
-        Point included = new ClosePoint(value);
-        return (this.minimum.isLowerOrEqualsThan(included) && this.maximum.isGreaterOrEqualsThan(included));
-    }
 }
