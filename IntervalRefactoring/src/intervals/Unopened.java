@@ -16,9 +16,4 @@ public class Unopened extends Interval{
     public boolean includes(double value) {
         return (value >= this.minimum.value && value <= this.maximum.value);
     }
-
-    @Override
-    public boolean includes(Interval interval) {
-        return (this.minimum.isLowerOrEqualsThan(interval.minimum) && this.maximum.isGreaterOrEqualsThan(interval.maximum));
-    }
 }
