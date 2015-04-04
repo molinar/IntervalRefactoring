@@ -15,7 +15,9 @@ public abstract class Interval {
 
     public abstract boolean includes(double value);
 
-    public abstract boolean includes(Interval interval);
+    public boolean includes(Interval interval){
+        return (this.minimum.isLowerOrEqualsThan(interval.minimum) && this.maximum.isGreaterOrEqualsThan(interval.maximum));
+    }
 
     public boolean intersectsWith(Interval interval) {
         // TODO
